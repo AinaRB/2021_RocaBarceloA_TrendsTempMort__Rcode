@@ -352,7 +352,7 @@ MMT_plot1<-function(data, x, y, ribbonmin, ribbonmax, ylimtop, ylimbottom, col1,
     geom_hline(aes(yintercept=value), col="gray70")+
     scale_y_continuous(breaks=seq(15,30, by=2),limits=c(15, 30))+
     scale_color_manual(values = c(col1, col2),labels = c("Reduced MMT", "Increased MMT"), "Absolute difference \n(ref. 2000)")+
-    xlab("Years") + ylab("Minimum Mortality Temperature (캜)")+
+    xlab("Years") + ylab("Minimum Mortality Temperature (째C)")+
     theme(panel.background = element_rect(fill = "white", colour = "grey50"), panel.grid.major = element_line(linetype = "dashed",colour = "gray80", size=0.4),
           axis.title.x = element_text(color="black", size=8, face="bold", family="sans"),
           axis.title.y = element_text(color="black", size=8, face="bold",  family="sans"),
@@ -398,7 +398,7 @@ plot<-list() # empty list to save plots
 for(i in 1:length(out)){
   pl<-subset(df, health==outcome[i])
   plot[[i]]<-ggplot(pl, aes(x=temp_mean.mean, y=mmt_constr))+
-    geom_point()+ xlab("Mean Annual Temperature (캜)")+ ylab("MMT(캜)")+ggtitle(paste0(out[i]))+
+    geom_point()+ xlab("Mean Annual Temperature (째C)")+ ylab("MMT(째C)")+ggtitle(paste0(out[i]))+
     ggtitle(paste0(labels[i]))+xlab("")+ylab("")+ylim(19,24)+
     theme(panel.background = element_rect(fill = "white", colour = "grey50"), panel.grid.major = element_line(linetype = "dashed",colour = "gray80", size=0.4),
         axis.title.x = element_text(color="black", size=8, face="bold", family="sans"),
@@ -428,7 +428,7 @@ plotRR<-function(data, x, y, cihigh, cilow,group, mycolors, lbl){
           geom_line(size=0.8)+
           geom_vline(mapping=aes(xintercept=mmt_constr, color=as.factor(group)),data=df, show.legend = F, size=0.3,linetype="dashed")+
           geom_vline(xintercept=c(perc[2],perc[3], perc[7], perc[8]), color="gray60", linetype="dotted") + #add dotted lines for 10tha dn 90th percentiles
-          xlab("Temperature (캜)")+ylab("Cumulative Relative Risk")+
+          xlab("Temperature (째C)")+ylab("Cumulative Relative Risk")+
           scale_x_continuous(breaks=round(seq(round(min(as.numeric(x))), round(max(as.numeric(x))+2), by=1),1))+
           coord_cartesian(ylim=c(0,2.2))+ labs(col = "year")+
           geom_hline(yintercept=1, linetype="solid", color = "grey50")+ # add baseline df=1

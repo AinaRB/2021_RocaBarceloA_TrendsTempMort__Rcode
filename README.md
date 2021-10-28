@@ -11,7 +11,7 @@ This code is used in:
 The code has to be run in the following order:
 - 01_Master_Main_Model - Runs the main model for the results reported in the manuscript
 - 02_Figures_Manuscript - uses the exports of the previous file to generate the figures in the manuscript
-- 03_Master_Sensitivty Analyses - Contains the sensitivity analysis as reproted in Table x of the manuscript
+- 03_Master_Sensitivty Analyses - Contains the sensitivity analyses as reproted in Table S2 of the manuscript
 - (DO NOT RUN)DLNM_source_code - is the source code called by 01 and 02 where the parametrization is defined
 
 

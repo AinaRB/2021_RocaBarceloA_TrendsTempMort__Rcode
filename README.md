@@ -1,4 +1,4 @@
-# 2021_RocaBarceloA_Nature Communications-Rcode
+# 2021_RocaBarceloA_Rcode
 ## Trends in temperature-mortality association in Sao Paolo 2000-2018
 
 Exploration of the temporal variations in the temperature-mortality association by gender, age, and ethnic group, in the municipality of São Paulo, Brazil, between 2000 and 2018. We fitted a time varying distributed lag non-linear model (tv-DLNM)11 to assess the association between daily mean temperature and mortality while allowing for time-varying exposure-response and lag-response associations. 

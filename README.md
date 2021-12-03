@@ -21,7 +21,10 @@ Download as a ZIP file using the green button Clone or download above.
 ### The data
 Mortality counts should be saved in the same folder as the code. We do not provide this data, yet it can be downloaded from the [Public Health System database (Sistema Único de Saúde, SUS)](https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10), run by the Ministry of Health of Brazil. Alternatively, if you would like a file containing simulated numbers that allow you to test the code, please contact a.roca-barcelo@imperial.ac.uk .
 
-ATTENTION! A template with the structure and format of the mortality dataset needed to run the model is provided in "DataFormat.csv". Additionally, a synthetic dataset based on a modified version of the NMMAPS publicaly availble chicago data is provided in "SimDF.csv". Please, note that this NOT a real dataset and so, conclusions should NOT be taken from them. The purpose of this sythetic dataset is purely for demonstration purposes and code sharing.
+A template with the structure and format of the mortality dataset needed to run the model is provided in "DataFormat.csv". Additionally, a synthetic dataset based on a modified version of the NMMAPS publicaly availble chicago data is provided in "SimulatedDF.csv". The code to create the synthetic data is provided in "00_SyntheticDataset.R".
+
+##ATTENTION! ##
+This is NOT a real dataset and so, results should NOT be interpreted as being real. The purpose of this sythetic dataset is purely for illustrative of the code functions.
 
 ### The model
 

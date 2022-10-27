@@ -7,33 +7,22 @@
 
 **Check our website here:** https://ainarb.github.io/climate_and_health/
 
-### The code
-The code has to be run in the following order:
-- 01_Master_Main_Model - Runs the main model for the results reported in the manuscript
-- 02_Master_Sensitivty Analyses - Contains the sensitivity analyses as reproted in Table S2 of the manuscript
-- 03_Figures_Manuscript - uses the exports of the previous file to generate the figures in the manuscript
-- (DO NOT RUN)DLNM_source_code - is the source code called by 01 and 02 where the parametrization is defined
-
-
-
-Download as a ZIP file using the green button Clone or download above.
-
 ### The study area: São Paulo (Brazil)
 
-
+<img src=https://github.com/AinaRB/2021_RocaBarceloA_TrendsTempMort__Rcode/blob/a49f88e7677fe214bc9eec38ea64c316cfd2b71d/StudyArea.png>
 
 ### The data
-**Mortality data:** Mortality counts should be saved in the same folder as the code. We do not provide this data, yet it can be downloaded from the [Public Health System database (Sistema Único de Saúde, SUS)](https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10), run by the Ministry of Health of Brazil. A template with the structure and format of the mortality dataset needed to run the model is provided in "DataFormat.csv". Additionally, a synthetic dataset based on a modified version of the NMMAPS publicaly availble chicago data is provided in "SimulatedDF.csv". The code to create the synthetic data is provided in "00_SyntheticDataset.R".
+**Mortality data:** We do not provide this data, yet it can be downloaded from the [Public Health System database (Sistema Único de Saúde, SUS)](https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10), run by the Ministry of Health of Brazil. A template with the structure and format of the mortality dataset needed to run the model is provided in "DataFormat.csv". Please, note that for the code to run, the mortality dataset should be saved in the same folder as the code. 
 
-##ATTENTION! ##
-This is NOT a real dataset and so, results should NOT be interpreted as being real. The purpose of this sythetic dataset is purely for illustrative of the code functions.
+Alternatively, a synthetic dataset based on a modified version of the NMMAPS publicaly availble chicago data is provided in "SimulatedDF.csv". The code to create the synthetic data is provided in "00_SyntheticDataset.R". ##ATTENTION! ## This is NOT a real dataset and so, results should NOT be interpreted as being real. The purpose of this sythetic dataset is purely for illustrative of the code functions.
 
-**Meterological data**: Temperature and relative humidity data were obtained from the Institute of Astronomy Geophysics and Atmospheric Sciences and University of São Paulo (IAG-USP) meteorological station (coordinates: 23,6512°S, 46,6224°W; elevation: 799.2 m). Data was obtained hourly and averaged to obtain a daily mean. The data is open access and can be downloaded from the IAG-USP platform at http://www.estacao.iag.usp.br/. 
+
+**Meterological data**: Temperature and relative humidity data were obtained from the Institute of Astronomy Geophysics and Atmospheric Sciences and University of São Paulo (IAG-USP) meteorological station (coordinates: 23,6512°S, 46,6224°W; elevation: 799.2 m). Data was obtained hourly and averaged to obtain a daily mean. The data is open access and can be downloaded from the [IAG-USP platform](http://www.estacao.iag.usp.br/). 
 
 
 ### The model
 
-The general specification of the model is defined below:
+In order to capture temporal changes in the temperature-mortality association we apply the time-varying distributed lag non-linear model (tv-DLNM) framework. Please, refer to [Gasparrini 2016 et al.](https://doi.org/10.1093/aje/kwv260) for a detailed description. The general specification of the model is defined below:
 <p align="center"><i>
 Y<sub>t,i</sub>~ quasiPoisson(μ<sub>t,i</sub>)  <br/>
 Log(μ<sub>t,i</sub>) = α + cb<sub>temp,t</sub>  +  ∑<sup>7</sup><sub>k=1</sub>β<sub>k</sub>I(dow<sub>t</sub>=k)   βdow<sub>t</sub> + γ holidays<sub>t</sub> + δPM<sub>10lag0-2<sub>t</sub></sub> + ns(RH<sub>lag0-2<sub>t</sub></sub>, 3df) + ns(time<sub>t</sub>, 10df x year)  + cb<sub>temp,t</sub> x time<sub>t</sub>    <br/>
@@ -44,5 +33,14 @@ where Y<sub>t</sub> denotes the mortality counts at day t, α is the intercept, 
 Finally, to allow for time-varying exposure-lag-response associations, we added a linear interaction term between time and the temperature crossbasis variable [
 cb<sub>temp,t</sub> x time<sub>t</sub>]. It represents the exposure-lag-response relationship at the centring point of the time variable used in the interaction term. Here, we were interested in annual changes in the temperature-lag-mortality association; thus, we used the central day of each year (1st July) to obtain equidistant estimates summarizing each year.
 
+
+### The code
+The code has to be run in the following order:
+- 01_Master_Main_Model - Runs the main model for the results reported in the manuscript
+- 02_Master_Sensitivty Analyses - Contains the sensitivity analyses as reproted in Table S2 of the manuscript
+- 03_Figures_Manuscript - uses the exports of the previous file to generate the figures in the manuscript
+- (DO NOT RUN)DLNM_source_code - is the source code called by 01 and 02 where the parametrization is defined
+
+Download as a ZIP file using the green button Clone or download above.
 
 ## Cite us

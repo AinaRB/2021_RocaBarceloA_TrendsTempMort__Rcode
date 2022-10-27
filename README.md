@@ -14,7 +14,7 @@
 ### The data
 **Mortality data:** We do not provide this data, yet it can be downloaded from the [Public Health System database (Sistema Único de Saúde, SUS)](https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10), run by the Ministry of Health of Brazil. A template with the structure and format of the mortality dataset needed to run the model is provided in "DataFormat.csv". Please, note that for the code to run, the mortality dataset should be saved in the same folder as the code. 
 
-Alternatively, a synthetic dataset based on a modified version of the NMMAPS publicaly availble chicago data is provided in "SimulatedDF.csv". The code to create the synthetic data is provided in "00_SyntheticDataset.R". ##ATTENTION! ## This is NOT a real dataset and so, results should NOT be interpreted as being real. The purpose of this sythetic dataset is purely for illustrative of the code functions.
+Alternatively, a synthetic dataset based on a modified version of the NMMAPS publicaly availble chicago data is provided in "SimulatedDF.csv". The code to create the synthetic data is provided in "00_SyntheticDataset.R". ##ATTENTION! ## This is NOT a real dataset and so, results should NOT be interpreted as being real. The purpose of this sythetic dataset is purely to illustrate the code functions.
 
 
 **Meterological data**: Temperature and relative humidity data were obtained from the Institute of Astronomy Geophysics and Atmospheric Sciences and University of São Paulo (IAG-USP) meteorological station (coordinates: 23,6512°S, 46,6224°W; elevation: 799.2 m). Data was obtained hourly and averaged to obtain a daily mean. The data is open access and can be downloaded from the [IAG-USP platform](http://www.estacao.iag.usp.br/). 

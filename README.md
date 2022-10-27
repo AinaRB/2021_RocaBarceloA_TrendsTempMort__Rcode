@@ -1,4 +1,3 @@
-# 2021_RocaBarceloA_Rcode
 ## Trends in Temperature-associated Mortality in São Paulo (Brazil) between 2000 and 2018: an Example of Disparities in Adaptation to Cold and Heat
 
 **Abstract**: Exposure to non-optimal temperatures remains the single most deathful direct climate change impact to health. The risk varies based on the adaptation capacity of the exposed population which can be driven by climatic and/or non-climatic factors subject to fluctuations over time. We investigated temporal changes in the exposure–response relationship between daily mean temperature and mortality by cause of death, sex, age, and ethnicity in the megacity of São Paulo, Brazil (2000–2018). We fitted a quasi-Poisson regression model with time-varying distributed-lag non-linear model (tv-DLNM) to obtain annual estimates. We used two indicators of adaptation: trends in the annual minimum mortality temperature (MMT), i.e., temperature at which the mortality rate is the lowest, and in the cumulative relative risk (cRR) associated with extreme cold and heat. Finally, we evaluated their association with annual mean temperature and annual extreme cold and heat, respectively to assess the role of climatic and non-climatic drivers. In total, we investigated 4,471,000 deaths from non-external causes. We found significant temporal trends for both the MMT and cRR indicators. The former was decoupled from changes in AMT, whereas the latter showed some degree of alignment with extreme heat and cold, suggesting the role of both climatic and non-climatic adaptation drivers. Finally, changes in MMT and cRR varied substantially by sex, age, and ethnicity, exposing disparities in the adaptation capacity of these population groups. Our findings support the need for group-specific interventions and regular monitoring of the health risk to non-optimal temperatures to inform urban public health policies.
@@ -19,13 +18,18 @@ The code has to be run in the following order:
 
 Download as a ZIP file using the green button Clone or download above.
 
-### The data
-Mortality counts should be saved in the same folder as the code. We do not provide this data, yet it can be downloaded from the [Public Health System database (Sistema Único de Saúde, SUS)](https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10), run by the Ministry of Health of Brazil. Alternatively, if you would like a file containing simulated numbers that allow you to test the code, please contact a.roca-barcelo@imperial.ac.uk .
+### The study area: São Paulo (Brazil)
 
-A template with the structure and format of the mortality dataset needed to run the model is provided in "DataFormat.csv". Additionally, a synthetic dataset based on a modified version of the NMMAPS publicaly availble chicago data is provided in "SimulatedDF.csv". The code to create the synthetic data is provided in "00_SyntheticDataset.R".
+
+
+### The data
+**Mortality data:** Mortality counts should be saved in the same folder as the code. We do not provide this data, yet it can be downloaded from the [Public Health System database (Sistema Único de Saúde, SUS)](https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10), run by the Ministry of Health of Brazil. A template with the structure and format of the mortality dataset needed to run the model is provided in "DataFormat.csv". Additionally, a synthetic dataset based on a modified version of the NMMAPS publicaly availble chicago data is provided in "SimulatedDF.csv". The code to create the synthetic data is provided in "00_SyntheticDataset.R".
 
 ##ATTENTION! ##
 This is NOT a real dataset and so, results should NOT be interpreted as being real. The purpose of this sythetic dataset is purely for illustrative of the code functions.
+
+**Meterological data**: Temperature and relative humidity data were obtained from the Institute of Astronomy Geophysics and Atmospheric Sciences and University of São Paulo (IAG-USP) meteorological station (coordinates: 23,6512°S, 46,6224°W; elevation: 799.2 m). Data was obtained hourly and averaged to obtain a daily mean. The data is open access and can be downloaded from the IAG-USP platform at http://www.estacao.iag.usp.br/. 
+
 
 ### The model
 
@@ -41,4 +45,4 @@ Finally, to allow for time-varying exposure-lag-response associations, we added 
 cb<sub>temp,t</sub> x time<sub>t</sub>]. It represents the exposure-lag-response relationship at the centring point of the time variable used in the interaction term. Here, we were interested in annual changes in the temperature-lag-mortality association; thus, we used the central day of each year (1st July) to obtain equidistant estimates summarizing each year.
 
 
-### Cite us
+## Cite us

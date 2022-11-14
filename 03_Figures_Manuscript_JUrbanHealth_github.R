@@ -1,5 +1,5 @@
 #####################################################################################################
-# #      Trends in Temperature-associated Mortality in São Paulo (Brazil) between 2000 and 2018: 
+# #      Trends in Temperature-associated Mortality in SÃ£o Paulo (Brazil) between 2000 and 2018: 
 # #             an Example of Disparities in Adaptation to Cold and Heat          
 # #                              by Aina Roca-Barcelo                       
 #####################################################################################################
@@ -11,8 +11,8 @@
 # PAPER #############################################################################################
 # Latest version of R code for the analysis in:                                                     
 #
-# Roca-Barceló, A., Fecht, D., Pirani, M. et al. Trends in Temperature-associated Mortality in
-# São Paulo (Brazil) between 2000 and 2018: an Example of Disparities in Adaptation to Cold and Heat. 
+# Roca-BarcelÃ³, A., Fecht, D., Pirani, M. et al. Trends in Temperature-associated Mortality in
+# SÃ£o Paulo (Brazil) between 2000 and 2018: an Example of Disparities in Adaptation to Cold and Heat. 
 # J Urban Health (2022). https://doi.org/10.1007/s11524-022-00695-7
 #####################################################################################################
 
@@ -52,11 +52,6 @@ mmtlist = list(); aflist=list(); anlist=list() # Define list to store results
 #CREATE OUTCOME GROUPS& LABELS FOR PLOTTING
 year<-c("2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017","2018")
 
-#FOR DEMO RUN THIS------------------------------------------------------------------------------------------------#
-outcome<-c("total", "cvd", "resp")
-labels<-c(total="a. All non-external causes (all ages)",cvd="b. CVD", respE="c. Resp. Diseases")
-
-#DO NOT RUN------------------------------------------------------------------------------------------------#
 out<-c("total", "females", "males", "RETI_65.79", "females_RETI_65.79", "males_RETI_65.79","RETII_.80","females_RETII_.80", "males_RETII_.80","colored", "females_colored","males_colored","white", "females_white","males_white",
        "RETI_65.79_colored","RETI_65.79_white","RETII_.80_colored" ,  "RETII_.80_white")
 out1<-c("total", "females", "males", "RETI_65.79", "females_RETI_65.79", "males_RETI_65.79","RETII_.80","females_RETII_.80", "males_RETII_.80","colored", "females_colored","males_colored","white", "females_white","males_white")
@@ -138,7 +133,7 @@ tiff(paste0(dateFig, "FigureTempDist_violinplot.tiff" ), units="in", width=14, h
 ggplot(temp, aes(x=as.factor(year), y=temp_mean)) + 
   geom_violin(trim=F, fill="gray" ,col="gray50")+
   geom_boxplot(width=0.1, fill="white", col="gray50")+
-  labs(title="",x="", y = "Temperature (°C)")+
+  labs(title="",x="", y = "Temperature (Â°C)")+
   geom_hline(yintercept=mean(temp$temp_mean), linetype='dashed', size=0.7, col = 'red')+
   scale_fill_manual("#E7B800") + theme_classic()
 dev.off()
@@ -152,7 +147,7 @@ annual<-rbind(perc, mean); annual<-subset(annual, quantile!="50%") #create datse
 tiff(paste0(dateFig, "Fig_1b.tiff" ), width = 8, height = 4, units = 'in', res = 800,compression = "lzw")
 ggplot(annual, aes(x=year, y=temp, group=quantile,shape=quantile, color=quantile))+
   geom_point(size=3)+geom_line()+
-  ylab("Temperature (°C)")+xlab("Year")+ 
+  ylab("Temperature (Â°C)")+xlab("Year")+ 
   scale_y_continuous(breaks=seq(round(min(annual$temp)-2),round(max(annual$temp)+2), by=5),limits=c(min(annual$temp)-2,max(annual$temp)+2))+
   scale_x_continuous(breaks=seq(2000,2018, by=1),limits=c(2000,2018))+
   scale_color_manual("Temperature percentiles:", values=c("blue", "red","gray40"), labels=c("1st ", "99th","AMT"))+
@@ -167,9 +162,9 @@ isSeasonal(temp$temp_mean, test = "combined", freq = 365)
 
 # FIGURE S2:
 tiff(paste0(dateFig, "Figure_S2.tiff" ), width = 7, height = 4, units = 'in', res = 800,compression = "lzw")
-plot1<-timeseries(temp, temp$date, temp$temp_mean, redD , "Temperature (°C)", "a. Mean daily temperature (°C)") # ") # TEMPERATURE
+plot1<-timeseries(temp, temp$date, temp$temp_mean, redD , "Temperature (Â°C)", "a. Mean daily temperature (Â°C)") # ") # TEMPERATURE
 plot2<-timeseries(temp, temp$date, temp$HR_mean, blueD,"Relative Humidity (%)", "b. Mean daily relative humidity (%)") # RELATIVE HUMIDITY
-plot3<-timeseries(temp, temp$date, temp$pm10_mean.mean, grayD,"Air Pollution (µg/m3)", "c. Mean daily PM10 (µg/m3)") # AIR POLLUTION
+plot3<-timeseries(temp, temp$date, temp$pm10_mean.mean, grayD,"Air Pollution (Âµg/m3)", "c. Mean daily PM10 (Âµg/m3)") # AIR POLLUTION
 grid.arrange(plot1, plot2, plot3, nrow=3, ncol=1)
 dev.off()
 
@@ -180,20 +175,20 @@ temp %>%
   ggplot(aes(x = temp_mean, y = as.factor(year), fill=year)) +
   geom_density_ridges(quantile_lines=TRUE,  quantile_fun=function(x,...)mean(x))+
   scale_fill_viridis(name = "Year", option = "E") +
-  labs(title="",x = "Temperature (°C)", y="")+theme_bw()
+  labs(title="",x = "Temperature (Â°C)", y="")+theme_bw()
 dev.off()
 #B/W
 tiff(paste0(dateFig, "FigureTempDist_annual_mono.tiff" ), units="in", width=8, height=14, res=900,compression = "lzw")
 temp %>%
   ggplot(aes(x = temp_mean, y = as.factor(year))) +
   geom_density_ridges(fill="gray", quantile_lines=TRUE, quantile_fun=function(x,...)mean(x))+
-  labs(title="",x = "Temperature (°C)", y="")+theme_bw()
+  labs(title="",x = "Temperature (Â°C)", y="")+theme_bw()
 dev.off()
 
 #ANIMATED VERSION (WEBSITE ONLY)
 library(gganimate);library(transformr)
 p<-ggplot(temp, aes(x=temp_mean))+geom_density(position = 'identity',col="black", fill = "blue")+
-  xlab("Daily mean temperature (°C)")+ylab("Percentage (%)")+
+  xlab("Daily mean temperature (Â°C)")+ylab("Percentage (%)")+
   theme_classic()+theme(panel.background = element_rect(fill = "white"), axis.line=element_line(size=0.5, colour="gray70"),
         axis.text.y = element_text(color="gray40", size=7),
         title = element_text(color="gray10", size=9, face="bold"),
@@ -293,7 +288,7 @@ plot<-list() # empty list to save plots
 for(i in 1:length(out)){
   pl<-subset(df, health==out[i])
   plot[[i]]<-ggplot(pl, aes(x=temp_mean.mean, y=mmt_constr, size=mmt_constr_se))+
-    geom_point(color="darkorange2", alpha=0.5, size=3)+ xlab("Annual  Temperature (°C)")+ ylab("MMT(°C)")+ggtitle(paste0(out[i]))+
+    geom_point(color="darkorange2", alpha=0.5, size=3)+ xlab("Annual  Temperature (Â°C)")+ ylab("MMT(Â°C)")+ggtitle(paste0(out[i]))+
     labs(title=paste0(labels[i]))+xlab("")+ylab("")+
     ylim(22,26)+ #adapt to the desired limits
     geom_smooth(method="lm", aes(weight=mmt_constr_se), fullrange = TRUE, alpha = 0.3, col="gray", fill="gray")+
@@ -336,7 +331,7 @@ ggplot(dfall, aes(x=as.numeric(index), y=allRRfit))+
   geom_line(size=0.8, color=dfall$paint)+ 
   geom_vline(mapping=aes(xintercept=mmt_constr), show.legend = F, size=0.3,linetype="dashed")+
   geom_vline(xintercept=c(perc[2],perc[3], perc[7], perc[8]), color="gray60", linetype="dotted") + #add dotted lines for 10tha dn 90th percentiles
-  xlab("Temperature (°C)")+ylab("Cumulative Relative Risk")+
+  xlab("Temperature (Â°C)")+ylab("Cumulative Relative Risk")+
   scale_x_continuous(breaks=round(seq(round(min(as.numeric(dfall$index))), round(max(as.numeric(dfall$index))+2), by=1),1))+
   coord_cartesian(ylim=c(0.5,3))+ labs(col = "year")+
   geom_hline(yintercept=1, linetype="solid", color = "grey50")+ # add baseline df=1
@@ -462,7 +457,7 @@ plot<-list() # empty list to save plots
 for(i in 1:length(out)){
   pl<-subset(df, sheet_name==out[i])
   plot[[i]]<-ggplot(subset(pl,per==perc), aes(x=temp_mean.99, y=allRRfit))+
-    geom_point(color=color, alpha=0.3, size=3)+ xlab("Annual  Temperature (°C)")+ ylab("MMT(°C)")+ggtitle(paste0(out[i]))+
+    geom_point(color=color, alpha=0.3, size=3)+ xlab("Annual  Temperature (Â°C)")+ ylab("MMT(Â°C)")+ggtitle(paste0(out[i]))+
     labs(title=paste0(labels[i]))+xlab("")+ylab("")+ylim(ylim1,ylim2)+
     geom_smooth(method="lm", fullrange = TRUE, alpha = 0.25, col="gray", fill="gray")+
     stat_cor(col=color,alpha=0.7,method = "pearson", label.y = 0.95, size=3)+

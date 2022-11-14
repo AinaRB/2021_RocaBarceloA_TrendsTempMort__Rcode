@@ -2,10 +2,11 @@
 
 **Abstract**: Exposure to non-optimal temperatures remains the single most deathful direct climate change impact to health. The risk varies based on the adaptation capacity of the exposed population which can be driven by climatic and/or non-climatic factors subject to fluctuations over time. We investigated temporal changes in the exposure–response relationship between daily mean temperature and mortality by cause of death, sex, age, and ethnicity in the megacity of São Paulo, Brazil (2000–2018). We fitted a quasi-Poisson regression model with time-varying distributed-lag non-linear model (tv-DLNM) to obtain annual estimates. We used two indicators of adaptation: trends in the annual minimum mortality temperature (MMT), i.e., temperature at which the mortality rate is the lowest, and in the cumulative relative risk (cRR) associated with extreme cold and heat. Finally, we evaluated their association with annual mean temperature and annual extreme cold and heat, respectively to assess the role of climatic and non-climatic drivers. In total, we investigated 4,471,000 deaths from non-external causes. We found significant temporal trends for both the MMT and cRR indicators. The former was decoupled from changes in AMT, whereas the latter showed some degree of alignment with extreme heat and cold, suggesting the role of both climatic and non-climatic adaptation drivers. Finally, changes in MMT and cRR varied substantially by sex, age, and ethnicity, exposing disparities in the adaptation capacity of these population groups. Our findings support the need for group-specific interventions and regular monitoring of the health risk to non-optimal temperatures to inform urban public health policies.
 
-
-**Read our paper here:**
-
 **Check our website here:** https://ainarb.github.io/climate_and_health/
+
+**Read our paper here:** https://doi.org/10.1007/s11524-022-00695-7
+
+
 
 ### The study area: São Paulo (Brazil)
 
@@ -43,4 +44,5 @@ The code has to be run in the following order:
 
 Download as a ZIP file using the green button Clone or download above.
 
-## Cite us
+## Cite our paper
+Roca-Barceló, A., Fecht, D., Pirani, M. et al. Trends in Temperature-associated Mortality in São Paulo (Brazil) between 2000 and 2018: an Example of Disparities in Adaptation to Cold and Heat. J Urban Health (2022). https://doi.org/10.1007/s11524-022-00695-7

@@ -1,5 +1,5 @@
 #####################################################################################################
-# #      Trends in Temperature-associated Mortality in São Paulo (Brazil) between 2000 and 2018: 
+# #      Trends in Temperature-associated Mortality in SÃ£o Paulo (Brazil) between 2000 and 2018: 
 # #             an Example of Disparities in Adaptation to Cold and Heat          
 # #                              by Aina Roca-Barcelo                       
 #####################################################################################################
@@ -11,8 +11,8 @@
 # PAPER #############################################################################################
 # Latest version of R code for the analysis in:                                                     
 #
-# Roca-Barceló, A., Fecht, D., Pirani, M. et al. Trends in Temperature-associated Mortality in
-# São Paulo (Brazil) between 2000 and 2018: an Example of Disparities in Adaptation to Cold and Heat. 
+# Roca-BarcelÃ³, A., Fecht, D., Pirani, M. et al. Trends in Temperature-associated Mortality in
+# SÃ£o Paulo (Brazil) between 2000 and 2018: an Example of Disparities in Adaptation to Cold and Heat. 
 # J Urban Health (2022). https://doi.org/10.1007/s11524-022-00695-7
 #####################################################################################################
 
@@ -44,7 +44,7 @@ lagint<-TRUE; lag_int[i]<-lagint #intercept for lag basis
 #TEMPERATURE BASIS PARAMETERS
 tempfun<- "bs"; temp_fun[i]<-tempfun #function for temperature
 if(sa==1){degree<-2} else {degree<-3}; print(degree); temp_degree[i]<-degree
-if(sa==2){varper<-c(75)} else if(sa==3){varper<-c(90)} else if(sa==4){varper<-c(50,90)} else if(sa==5){varper<-c(25,50,90)} else if(sa==5){varper<-c(25,50,90,95)} else if (sa==7){varper<-c(10, 75, 90)} else {varper<-c(75)} ; print(varper);temp_per[i]<-paste(varper, collapse=",") #location knots temperature percentiles
+if(sa==2){varper<-c(75)} else if(sa==3){varper<-c(90)} else if(sa==4){varper<-c(50,90)} else if(sa==5){varper<-c(25,50,90)} else if(sa==6){varper<-c(25,50,90,95)} else if (sa==7){varper<-c(10, 75, 90)} else {varper<-c(75)} ; print(varper);temp_per[i]<-paste(varper, collapse=",") #location knots temperature percentiles
 temp_knots[i]<-length(varper)
 
 #CONFOUNDERS PARAMETERS
